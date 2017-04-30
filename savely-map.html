@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Savely</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+      	margin: 20px;
+        width:1000px;
+        height: 500px;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+
+    <script src="/savely/csv-parse.js"></script>
+    <script src="/savely/jQuery/jquery-1.7.min.js"></script>
+    <script src="/savely/jQuery/jquery-ui-1.9.0.custom.min.js"></script>
+    <script src="/savely/data/fires_europe_modis_csv.js"></script>
+    <script src="/savely/data/fires_europe_viirs_csv.js"></script>
+    <script src="/savely/js/map.js"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUrsWAT00vuFuhc_GYPcJfoqlk0hFvczk&callback=initMap"></script>
+
+    <script>
+		var fire_data;
+		/*
+		function getData()
+		{
+            $.ajax({
+                url: 'http://invoicebus.loc/savely/get_fire_data.ashx',
+                method: 'GET',
+                success: function (data) {
+                	fire_data = JSON.parse(data);
+                }
+            });
+        }
+	*/
+		function reportAFire()
+		{
+			//console.log(currentPosCoordinates.lat);
+			//alert("Lat: " + fireLocMarker.getPosition().lat() + " Lon: "+fireLocMarker.getPosition().lng());
+
+			/*
+			$.ajax({
+                url: 'http://invoicebus.loc/savely/submit_fire.ashx',
+                method: 'POST',
+                data: {
+                    name: 'Pero', //$('#Cmp_ContactUs_Name').val(),
+                    email: 'perica@perica.com', //$('#Cmp_ContactUs_Email').val(),
+                    subject: 'Subject', //$('#Cmp_ContactUs_Subject').val(),
+                    message: 'Message' //$('#Cmp_ContactUs_Message').val()
+                },
+                success: function (data) {
+                	console.log(data);
+                }
+            });
+            */
+		}
+    </script>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <a href="#" onclick="reportAFire()">Report a fire</a>
+    <a href="#" onclick="setMarkers_Fires(map)">Show fires on the map</a>
+    <div>
+
+    </div>
+  </body>
+</html>
